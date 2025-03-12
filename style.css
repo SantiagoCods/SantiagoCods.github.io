@@ -39,7 +39,7 @@ body  {
 	--evelope-rotate-delay-hover: 0ms;
 
 	--letter-clr-bg: #fff;
-	--letter-clr-text: #c0392b;
+	--letter-clr-text: #202020;
 	--letter-font-size: 1rem;
 	--letter-delay: 0ms;
 	--letter-delay-hover: calc(
@@ -247,12 +247,50 @@ body  {
 	transform: rotate(0deg);
 	animation: fall linear infinite;
 }
+.balloon {
+	position: absolute;
+	width: 40px;
+	height: 55px;
+	border-radius: 50%;
+	opacity: 0.9;
+	animation: fall linear infinite;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.knot {
+	position: absolute;
+	bottom: -5px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 8px;
+	height: 5px;
+	border-radius: 50%;
+}
+.string {
+	position: absolute;
+	bottom: -40px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 2px;
+	height: 40px;
+}
+.string::before {
+	content: '';
+	display: block;
+	width: 2px;
+	height: 40px;
+	background: gray;
+	animation: wave 1s infinite linear;
+	mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 40"><path d="M5,0 C0,10 10,20 5,30 C0,40 10,50 5,60" stroke="black" fill="transparent"/></svg>');
+	-webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 40"><path d="M5,0 C0,10 10,20 5,30 C0,40 10,50 5,60" stroke="black" fill="transparent"/></svg>');
+}
 @keyframes fall {
 	0% {
-		transform: translateY(0) rotate(0deg);
+		transform: translateY(0);
 	}
 	100% {
-		transform: translateY(100vh) rotate(360deg);
+		transform: translateY(100vh);
 		opacity: 0;
 	}
 }
